@@ -52,18 +52,19 @@ class UserInputView: UIViewController {
     }
     @objc func searchButtonTapped() {
         let selectedProvince = provinceTextField.text ?? "İl seçilmedi"
-        let selectedDistrict = districtTextField.text ?? "İlçe seçilmedi"
-        
-        if provinceTextField.text != "" && districtTextField.text != "" {
-            if let listView = storyboard?.instantiateViewController(withIdentifier: "ListView") as? ListView {
-                listView.selectedProvince = selectedProvince
-                listView.selectedDistrict = selectedDistrict
-                listView.modalPresentationStyle = .fullScreen
-                present(listView, animated: true, completion: nil)
-            }
-        } else {
-            print("Lütfen bir il ve ilçe seçiniz.")
-        }
+           let selectedDistrict = districtTextField.text ?? "İlçe seçilmedi"
+           
+           if provinceTextField.text != "" && districtTextField.text != "" {
+               if let listView = storyboard?.instantiateViewController(withIdentifier: "ListView") as? ListView {
+                   listView.selectedProvince = selectedProvince
+                   listView.selectedDistrict = selectedDistrict
+                   let navigationController = UINavigationController(rootViewController: listView)
+                   navigationController.modalPresentationStyle = .fullScreen
+                   present(navigationController, animated: true, completion: nil)
+               }
+           } else {
+               print("Lütfen bir il ve ilçe seçiniz.")
+           }
     }
 
 

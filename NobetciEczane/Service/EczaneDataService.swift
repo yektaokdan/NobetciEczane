@@ -23,7 +23,7 @@ class EczaneDataService {
         
         // Header bilgilerini ekleyin
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("apikey 6dYXPWdvMYYCS0Sn0Cy1so:1JI2YNaodPYO0tHUzWVfuU", forHTTPHeaderField: "authorization") // CollectAPI API anahtarınızı buraya ekleyin
+        request.addValue("YOUR-API-KEY", forHTTPHeaderField: "authorization") // CollectAPI API anahtarınızı buraya ekleyin
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {

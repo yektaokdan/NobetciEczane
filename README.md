@@ -1,3 +1,4 @@
+![alt text](https://github.com/yektaokdan/NobetciEczane/blob/main/image_for_readme/mockup.png?raw=true)
 # NobetciEczane
 
 `NobetciEczane`, Türkiye'deki kullanıcıların bulundukları il ve ilçeye göre nöbetçi eczaneleri bulmalarını sağlayan bir iOS uygulamasıdır. Kullanıcılar, bir dropdown menü üzerinden il ve ilçe seçimi yaparak, o bölgedeki nöbetçi eczanelerin listesine ulaşabilirler. Bu liste, eczanenin adı, adresi ve telefon numarasını içerir. Kullanıcılar ayrıca, listelenen telefon numaralarına tıklayarak doğrudan eczaneyi arayabilirler.

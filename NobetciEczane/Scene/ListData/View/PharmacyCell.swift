@@ -25,7 +25,6 @@ class PharmacyCell: UITableViewCell {
         addressLabel.font = UIFont.systemFont(ofSize: 14)
         addressLabel.numberOfLines = 0
         
-       
         phoneButton.setTitleColor(.systemBlue, for: .normal)
         phoneButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         phoneButton.contentHorizontalAlignment = .left
@@ -56,23 +55,15 @@ class PharmacyCell: UITableViewCell {
     func configure(with pharmacy: Result) {
         nameLabel.text = pharmacy.name
         addressLabel.text = pharmacy.address
-        phoneButton.setAttributedTitle(underlinePhoneNumber(phoneNumber: pharmacy.phone), for: .normal)
+        // Telefon numarasını doğrudan title olarak ayarla
+        phoneButton.setTitle(pharmacy.phone, for: .normal)
     }
     
     @objc func callPharmacy(sender: UIButton) {
-        guard let phoneNumber = sender.attributedTitle(for: .normal)?.string.replacingOccurrences(of: " ", with: ""),
+        guard let phoneNumber = sender.title(for: .normal)?.replacingOccurrences(of: " ", with: ""),
               let phoneURL = URL(string: "tel://\(phoneNumber)") else {
             return
         }
-        UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-    }
-
-    private func underlinePhoneNumber(phoneNumber: String) -> NSAttributedString {
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 14),
-            .foregroundColor: UIColor.systemBlue,
-            .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]
-        return NSAttributedString(string: phoneNumber, attributes: attributes)
+        UIApplication.shared.open(phoneURL)
     }
 }
